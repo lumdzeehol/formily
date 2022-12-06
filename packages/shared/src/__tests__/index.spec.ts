@@ -843,6 +843,10 @@ describe('globalThis', () => {
 describe('instanceof', () => {
   test('instOf', () => {
     expect(instOf(123, 123)).toBeFalsy()
+    expect(instOf('123', 'fake class')).toBeFalsy()
+    function TestClass() {}
+    const inst = new TestClass()
+    expect(instOf(inst, TestClass)).toBeTruthy()
   })
 })
 
